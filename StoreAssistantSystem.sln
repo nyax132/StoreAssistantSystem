@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreAssistantSystem", "StoreAssistantSystem\StoreAssistantSystem.csproj", "{5ACBFAA7-3B0F-4BE0-BF5A-6ED1AD34C003}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreServerSystem", "StoreServerSystem\StoreServerSystem.csproj", "{6497EEFB-85AB-4B37-A0E7-A55D10B0B623}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ACBFAA7-3B0F-4BE0-BF5A-6ED1AD34C003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ACBFAA7-3B0F-4BE0-BF5A-6ED1AD34C003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ACBFAA7-3B0F-4BE0-BF5A-6ED1AD34C003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ACBFAA7-3B0F-4BE0-BF5A-6ED1AD34C003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6497EEFB-85AB-4B37-A0E7-A55D10B0B623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6497EEFB-85AB-4B37-A0E7-A55D10B0B623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6497EEFB-85AB-4B37-A0E7-A55D10B0B623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6497EEFB-85AB-4B37-A0E7-A55D10B0B623}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98351219-57B5-4505-8DF9-83ACF63386FA}
+	EndGlobalSection
+EndGlobal
