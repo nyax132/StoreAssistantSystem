@@ -67,7 +67,7 @@ namespace StoreServerSystem
                     // 受信したデータを文字列に変換します。
                     string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                     Program.form.loglistBox.Invoke(new Action(() => Program.form.loglistBox.Items.Add("Received:" + data)));
-                    var SQLDatas = SQLLisner.SQLListener.Classification(data);
+                    var SQLDatas = SQLLisner.SQLListener.ParseDatabaseAction(data);
 
                     // クライアントにデータを送信します。
                     //listを整列させる

@@ -13,6 +13,7 @@ namespace StoreAssistantSystem
     {
         private static TcpClient? Client { get; set; }
         private static List<TcpClient> clients = new();
+
         public static async Task<string> SendMessage(string messagee)
         {
             if (Client == null || !Client.Connected)
