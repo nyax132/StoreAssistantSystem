@@ -99,7 +99,7 @@
             button_ProductMasterRegistration.Name = "button_ProductMasterRegistration";
             button_ProductMasterRegistration.Size = new Size(242, 85);
             button_ProductMasterRegistration.TabIndex = 9;
-            button_ProductMasterRegistration.Text = "商品マスター登録";
+            button_ProductMasterRegistration.Text = "商品マスター情報編集";
             button_ProductMasterRegistration.UseVisualStyleBackColor = true;
             button_ProductMasterRegistration.Click += button_ProductMasterRegistration_Click;
             // 

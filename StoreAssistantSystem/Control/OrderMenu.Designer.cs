@@ -51,6 +51,7 @@
             button_registration = new Button();
             productname_label = new Label();
             button_registrationhistory = new Button();
+            label4 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -261,7 +262,7 @@
             // 
             // button_registration
             // 
-            button_registration.BackColor = Color.FromArgb(255, 128, 128);
+            button_registration.BackColor = Color.FromArgb(128, 128, 255);
             button_registration.Location = new Point(194, 495);
             button_registration.Margin = new Padding(3, 4, 3, 4);
             button_registration.Name = "button_registration";
@@ -290,10 +291,22 @@
             button_registrationhistory.Text = "登録履歴";
             button_registrationhistory.UseVisualStyleBackColor = false;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("メイリオ", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.RoyalBlue;
+            label4.Location = new Point(15, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(100, 23);
+            label4.TabIndex = 6;
+            label4.Text = "～発注処理～";
+            // 
             // OrderMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label4);
             Controls.Add(button_registrationhistory);
             Controls.Add(productname_label);
             Controls.Add(button_registration);
@@ -305,7 +318,6 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "OrderMenu";
             Size = new Size(526, 602);
-            Load += OrderMenu_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -339,5 +351,6 @@
         private Label label_sellingprice;
         private Label label_gondora;
         private Label label_CurrentInventory;
+        private Label label4;
     }
 }

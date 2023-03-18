@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace StoreServerSystem
 {
     public partial class SASServerWIndow : Form
@@ -7,8 +5,8 @@ namespace StoreServerSystem
         public SASServerWIndow()
         {
             InitializeComponent();
-            loglistBox.Items.Add(SQLLisner.SQLListener.ParseDatabaseAction("productmaster createtable")[0]);
-            //loglistBox.Items.Add(SQLLisner.SQLListener.ParseDatabaseAction("productmaster insert 004 “”–û 108 50 1000 100 15000 2020”N4ŒŽ27“ú 1000:2:3")[0]);
+            SQLLisner.SQLListener.ParseDatabaseAction("productmaster createtable");
+            //SQLLisner.SQLListener.ParseDatabaseAction("productmaster insert 004 “”–û 50 108 1000 100 15000 2020”N4ŒŽ27“ú 1000:2:3");
         }
 
         private void button_serverstart_Click(object sender, EventArgs e)

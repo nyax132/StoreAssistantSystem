@@ -1,8 +1,7 @@
 using StoreAssistantSystem.Control;
 using System.Diagnostics;
-using System.Net.Sockets;
-using System.Net;
-using System.Text;
+using System.Media;
+using System.Text.RegularExpressions;
 
 namespace StoreAssistantSystem
 {
@@ -15,7 +14,7 @@ namespace StoreAssistantSystem
             var mainmenu = new MainMenu();
             TransitionControl(mainmenu);
 
-            TcpClientServer.ConnectServer(55555, "127.0.0.1");
+            TcpClient.ConnectServer(55555, "127.0.0.1");
         }
 
         /// <summary>
@@ -40,18 +39,35 @@ namespace StoreAssistantSystem
 
         public void StatusMessage(string message, Color color)
         {
+            if (color == Color.Red) SystemSounds.Hand.Play();
+
             toolStripStatusLabel1.Text = message;
             toolStripStatusLabel1.ForeColor = color;
         }
 
+        public void StatusMessage(string message, bool notice_sound = false)
+        {
+            if (notice_sound) SystemSounds.Asterisk.Play();
+            toolStripStatusLabel1.Text = message;
+            toolStripStatusLabel1.ForeColor = Color.Black;
+        }
+
         private void SASWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            TcpClientServer.StopClient();
+            TcpClient.StopClient();
         }
 
         private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
         {
-            TcpClientServer.ConnectServer(55555, "127.0.0.1");
+            TcpClient.ConnectServer(55555, "127.0.0.1");
+        }
+    }
+    public class Components
+    {
+        public static bool IsOnlyAlphanumeric2(string text)
+        {
+            // 文字列の先頭から末尾までが、英数字のみとマッチするかを調べる。
+            return Regex.IsMatch(text, @"^[0-9a-zA-Z]+$");
         }
     }
 }
