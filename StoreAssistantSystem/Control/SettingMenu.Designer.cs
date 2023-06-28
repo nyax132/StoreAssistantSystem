@@ -28,41 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button_enter = new Button();
+            button_apply = new Button();
             groupBox1 = new GroupBox();
-            label4 = new Label();
-            label1 = new Label();
-            textBox1 = new TextBox();
+            textBox_port = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            textBox_ip = new TextBox();
+            label1 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            button_back = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // button_enter
+            // button_apply
             // 
-            button_enter.FlatAppearance.BorderColor = Color.Gray;
-            button_enter.FlatAppearance.BorderSize = 3;
-            button_enter.Location = new Point(268, 412);
-            button_enter.Margin = new Padding(3, 4, 3, 4);
-            button_enter.Name = "button_enter";
-            button_enter.Size = new Size(245, 85);
-            button_enter.TabIndex = 14;
-            button_enter.Text = "決定";
-            button_enter.UseVisualStyleBackColor = true;
-            button_enter.Click += button_enter_Click;
+            button_apply.BackColor = Color.LightCoral;
+            button_apply.FlatAppearance.BorderColor = Color.Gray;
+            button_apply.FlatAppearance.BorderSize = 3;
+            button_apply.Location = new Point(279, 412);
+            button_apply.Margin = new Padding(3, 4, 3, 4);
+            button_apply.Name = "button_apply";
+            button_apply.Size = new Size(245, 85);
+            button_apply.TabIndex = 14;
+            button_apply.Text = "適用";
+            button_apply.UseVisualStyleBackColor = false;
+            button_apply.Click += button_apply_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(textBox_port);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(textBox_ip);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(28, 47);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(247, 194);
+            groupBox1.Size = new Size(237, 166);
             groupBox1.TabIndex = 15;
             groupBox1.TabStop = false;
             groupBox1.Text = "通信";
+            // 
+            // textBox_port
+            // 
+            textBox_port.Location = new Point(52, 113);
+            textBox_port.Name = "textBox_port";
+            textBox_port.Size = new Size(136, 25);
+            textBox_port.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 92);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 18);
+            label2.TabIndex = 2;
+            label2.Text = "ポート番号";
+            // 
+            // textBox_ip
+            // 
+            textBox_ip.Location = new Point(52, 51);
+            textBox_ip.Name = "textBox_ip";
+            textBox_ip.Size = new Size(136, 25);
+            textBox_ip.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(68, 18);
+            label1.TabIndex = 0;
+            label1.Text = "IPアドレス";
             // 
             // label4
             // 
@@ -75,45 +110,37 @@
             label4.TabIndex = 16;
             label4.Text = "～設定～";
             // 
-            // label1
+            // label3
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(68, 18);
-            label1.TabIndex = 0;
-            label1.Text = "IPアドレス";
+            label3.AutoSize = true;
+            label3.Location = new Point(276, 390);
+            label3.Name = "label3";
+            label3.Size = new Size(248, 18);
+            label3.TabIndex = 17;
+            label3.Text = "※適用するにはアプリを再起動してください";
             // 
-            // textBox1
+            // button_back
             // 
-            textBox1.Location = new Point(52, 51);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(136, 25);
-            textBox1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 92);
-            label2.Name = "label2";
-            label2.Size = new Size(68, 18);
-            label2.TabIndex = 2;
-            label2.Text = "ポート番号";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(52, 113);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(136, 25);
-            textBox2.TabIndex = 3;
+            button_back.FlatAppearance.BorderColor = Color.Gray;
+            button_back.FlatAppearance.BorderSize = 3;
+            button_back.Location = new Point(12, 412);
+            button_back.Margin = new Padding(3, 4, 3, 4);
+            button_back.Name = "button_back";
+            button_back.Size = new Size(245, 85);
+            button_back.TabIndex = 18;
+            button_back.Text = "戻る";
+            button_back.UseVisualStyleBackColor = true;
+            button_back.Click += button_back_Click;
             // 
             // SettingMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button_back);
+            Controls.Add(label3);
             Controls.Add(label4);
             Controls.Add(groupBox1);
-            Controls.Add(button_enter);
+            Controls.Add(button_apply);
             Font = new Font("メイリオ", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);
             Name = "SettingMenu";
@@ -126,12 +153,14 @@
 
         #endregion
 
-        private Button button_enter;
+        private Button button_apply;
         private GroupBox groupBox1;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox textBox_port;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox textBox_ip;
         private Label label1;
+        private Label label3;
+        private Button button_back;
     }
 }

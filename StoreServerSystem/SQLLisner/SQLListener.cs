@@ -45,8 +45,84 @@ namespace StoreServerSystem.SQLLisner
         /// <returns></returns>
         private static List<string> OrderMaster_ExecuteTableOperation(string[] SQLDatas)
         {
+            const string TableName = "ORDERMASTER";
             List<string> result = new();
+
+            switch (SQLDatas[1])
+            {
+                case "insert":
+                    Debug.WriteLine("OrderMaster_ExecuteTableOperation => insert");
+                    Insert();
+                    break;
+
+                case "update":
+                    Debug.WriteLine("OrderMaster_ExecuteTableOperation => update");
+                    Update();
+                    break;
+
+                case "delete":
+                    Debug.WriteLine("OrderMaster_ExecuteTableOperation => delete");
+                    Delete();
+                    break;
+
+                case "serachjan":
+                    Debug.WriteLine("OrderMaster_ExecuteTableOperation => serachjan");
+                    SerachJAN();
+                    break;
+
+                case "createtable":
+                    Debug.WriteLine("OrderMaster_ExecuteTableOperation => createtable");
+                    CreateTable();
+                    break;
+            }
             return result;
+
+            void Insert()
+            {
+                string q = $"INSERT INTO {TableName}   (JAN,QUANTITY,DETE,PERSON_NAME) VALUES (" +
+                    $"{SQLDatas[2]},'{SQLDatas[3]}',{SQLDatas[4]},{SQLDatas[5]}')";
+                result.Add(
+                    ExecuteNonQuery(q));
+            }
+
+            void Update()
+            {
+                string q = $"UPDATE {TableName} SET QUANTITY = '{SQLDatas[3]}', DETE = '{SQLDatas[4]}', PERSON_NAME = '{SQLDatas[5]};";
+                result.Add(
+                    ExecuteNonQuery(q));
+            }
+
+            void Delete()
+            {
+                string q = $"DELETE FROM {TableName} WHERE JAN = '{SQLDatas[2]}'";
+                result.Add(
+                    ExecuteNonQuery(q));
+            }
+
+            void SerachJAN()
+            {
+                result = SerachJANData(int.Parse(SQLDatas[2]), TableName);
+                if (result.Count == 0)
+                {
+                    result.Add("notfound");
+                }
+            }
+
+            void CreateTable()
+            {
+                StringBuilder q = new();
+                q.Clear();
+                q.Append($"CREATE TABLE IF NOT EXISTS {TableName} (");
+                q.Append(" JAN INTEGER NOT NULL"); //JAN
+                q.Append(" ,QUANTITY INTEGER NOT NULL"); //発注数
+                q.Append(" ,DETE TEXT NOT NULL"); //発注日
+                q.Append(" ,PERSON_NAME TEXT NOT NULL"); //発注者名
+                q.Append(" ,primary key (JAN)");
+                q.Append(")");
+
+                result.Add(
+                    ExecuteNonQuery(q.ToString()));
+            }
         }
 
         /// <summary>
@@ -61,27 +137,27 @@ namespace StoreServerSystem.SQLLisner
             switch (SQLDatas[1])
             {
                 case "insert":
-                    Debug.WriteLine("ProductMasterExecuteTableOperation => insert");
+                    Debug.WriteLine("ProductMaster_ExecuteTableOperation => insert");
                     Insert();
                     break;
 
                 case "update":
-                    Debug.WriteLine("ProductMasterExecuteTableOperation => update");
+                    Debug.WriteLine("ProductMaster_ExecuteTableOperation => update");
                     Update();
                     break;
 
                 case "delete":
-                    Debug.WriteLine("ProductMasterExecuteTableOperation => delete");
+                    Debug.WriteLine("ProductMaster_ExecuteTableOperation => delete");
                     Delete();
                     break;
 
                 case "serachjan":
-                    Debug.WriteLine("ProductMasterExecuteTableOperation => serachjan");
+                    Debug.WriteLine("ProductMaster_ExecuteTableOperation => serachjan");
                     SerachJAN();
                     break;
 
                 case "createtable":
-                    Debug.WriteLine("ProductMasterExecuteTableOperation => createtable");
+                    Debug.WriteLine("ProductMaster_ExecuteTableOperation => createtable");
                     CreateTable();
                     break;
             }
@@ -112,7 +188,7 @@ namespace StoreServerSystem.SQLLisner
 
             void SerachJAN()
             {
-                result = SerachJANData(int.Parse(SQLDatas[2]), "PRODUCTMASTER");
+                result = SerachJANData(int.Parse(SQLDatas[2]), TableName);
                 if (result.Count == 0)
                 {
                     result.Add("notfound");

@@ -6,13 +6,15 @@ namespace StoreServerSystem
         {
             InitializeComponent();
             SQLLisner.SQLListener.ParseDatabaseAction("productmaster createtable");
+            SQLLisner.SQLListener.ParseDatabaseAction("ordermaster createtable");
             //SQLLisner.SQLListener.ParseDatabaseAction("productmaster insert 004 “”–û 50 108 1000 100 15000 2020”N4ŒŽ27“ú 1000:2:3");
         }
 
-        private void button_serverstart_Click(object sender, EventArgs e)
+        private async void button_serverstart_Click(object sender, EventArgs e)
         {
-            TcpServer.ServerStart(textBox_serveradress.Text, int.Parse(textBox_serverport.Text));
+            await TcpServer.ServerStart(textBox_serveradress.Text, int.Parse(textBox_serverport.Text));
 
+            button_databaseoptimization.Enabled = false;
             button_serverstart.Enabled = false;
             textBox_serveradress.Enabled = false;
             textBox_serverport.Enabled = false;
@@ -22,6 +24,7 @@ namespace StoreServerSystem
         {
 
             TcpServer.ServerStop();
+            button_databaseoptimization.Enabled = true;
             button_serverstart.Enabled = true;
             textBox_serveradress.Enabled = true;
             textBox_serverport.Enabled = true;
@@ -31,6 +34,11 @@ namespace StoreServerSystem
         private void button4_Click(object sender, EventArgs e)
         {
             loglistBox.Items.Clear();
+        }
+
+        private void button_databaseoptimization_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,15 +12,11 @@
         {
             var mainmenu = new MainMenu();
             Program.SasWindow.TransitionControl(mainmenu);
-
         }
 
         private async void button_read_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox_jan.Text) || !Components.IsOnlyAlphanumeric2(textBox_jan.Text))
-            {
-                return;
-            }
+            if (string.IsNullOrWhiteSpace(textBox_jan.Text) || !Components.IsOnlyAlphanumeric2(textBox_jan.Text)) return;
 
             var result = await TcpClient.CommunicationToServer("productmaster serachjan " + textBox_jan.Text);
             if (result == "notfound")
@@ -54,7 +50,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show("情報の表示にエラーが発生しました。 " + ex.Message);
+                MessageBox.Show("表示にエラーが発生しました。 " + ex.Message);
             }
 
         }

@@ -163,6 +163,7 @@
             // 
             // textBox_jan
             // 
+            textBox_jan.BackColor = Color.MistyRose;
             textBox_jan.Location = new Point(18, 52);
             textBox_jan.Name = "textBox_jan";
             textBox_jan.Size = new Size(169, 25);

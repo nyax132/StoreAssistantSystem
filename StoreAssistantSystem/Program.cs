@@ -2,9 +2,9 @@ namespace StoreAssistantSystem
 {
     internal static class Program
     {
-        public static SASWindow SasWindow { get; } = new SASWindow();
-        public static string IpAddress { get; set; } = "127.0.0.1";
-        public static int Port { get; set; } = 55555;
+        public static SASWindow SasWindow { get; private set; }
+        public static string IpAddress { get; } = Properties.Settings1.Default.IPaddress;
+        public static int Port { get; } = Properties.Settings1.Default.Port;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -18,7 +18,7 @@ namespace StoreAssistantSystem
             //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.Run(SasWindow);
+            Application.Run(SasWindow = new SASWindow());
 
         }
     }

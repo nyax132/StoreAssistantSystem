@@ -14,7 +14,7 @@ namespace StoreAssistantSystem
             var mainmenu = new MainMenu();
             TransitionControl(mainmenu);
 
-            TcpClient.ConnectServer(55555, "127.0.0.1");
+             TcpClient.ConnectServer(Program.Port, Program.IpAddress);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace StoreAssistantSystem
 
         private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
         {
-            TcpClient.ConnectServer(55555, "127.0.0.1");
+            TcpClient.ConnectServer(Program.Port, Program.IpAddress);
         }
     }
     public class Components

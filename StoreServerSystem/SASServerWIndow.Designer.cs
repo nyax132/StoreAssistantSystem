@@ -32,7 +32,7 @@
             loglistBox = new ListBox();
             button_serverstop = new Button();
             button_serverstart = new Button();
-            button_databaserefresh = new Button();
+            button_databaseoptimization = new Button();
             button4 = new Button();
             groupBox1 = new GroupBox();
             textBox_serverport = new TextBox();
@@ -83,14 +83,15 @@
             button_serverstart.UseVisualStyleBackColor = false;
             button_serverstart.Click += button_serverstart_Click;
             // 
-            // button_databaserefresh
+            // button_databaseoptimization
             // 
-            button_databaserefresh.Location = new Point(12, 52);
-            button_databaserefresh.Name = "button_databaserefresh";
-            button_databaserefresh.Size = new Size(192, 28);
-            button_databaserefresh.TabIndex = 4;
-            button_databaserefresh.Text = "データベース再構築";
-            button_databaserefresh.UseVisualStyleBackColor = true;
+            button_databaseoptimization.Location = new Point(12, 52);
+            button_databaseoptimization.Name = "button_databaseoptimization";
+            button_databaseoptimization.Size = new Size(192, 28);
+            button_databaseoptimization.TabIndex = 4;
+            button_databaseoptimization.Text = "データベース最適化";
+            button_databaseoptimization.UseVisualStyleBackColor = true;
+            button_databaseoptimization.Click += button_databaseoptimization_Click;
             // 
             // button4
             // 
@@ -157,7 +158,7 @@
             ClientSize = new Size(413, 416);
             Controls.Add(groupBox1);
             Controls.Add(button4);
-            Controls.Add(button_databaserefresh);
+            Controls.Add(button_databaseoptimization);
             Controls.Add(button_serverstart);
             Controls.Add(button_serverstop);
             Controls.Add(loglistBox);
@@ -177,7 +178,7 @@
         private Label label1;
         private Button button_serverstop;
         private Button button_serverstart;
-        private Button button_databaserefresh;
+        private Button button_databaseoptimization;
         private Button button4;
         public ListBox loglistBox;
         private GroupBox groupBox1;

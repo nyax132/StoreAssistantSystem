@@ -23,13 +23,11 @@ namespace StoreAssistantSystem
             byte[] bytemessage = Encoding.UTF8.GetBytes(messagee);
             await Client.GetStream().WriteAsync(bytemessage, 0, bytemessage.Length);
             Debug.WriteLine($"Send: {messagee}");
-
-            // サーバーからの応答を受信します。
-            NetworkStream stream = null;
             try
             {
+                // サーバーからの応答を受信します。
                 // ネットワークストリームを作成します。
-                stream = Client.GetStream();
+                NetworkStream stream = Client.GetStream();
                 NetworkStreams.Add(stream);
                 clients.Add(Client);
 
